@@ -1,0 +1,129 @@
+body {
+    background-color: black; /* Az oldal háttérszíne fekete */
+    margin: 0; /* Eltávolítja az alapértelmezett külső margót */
+    font-family: 'Orbitron', Arial, sans-serif; /* Betűtípus beállítása */
+    overflow-x: hidden; /* A vízszintes görgetés letiltása */
+}
+
+#game {
+    display: none; /* Alapból el van rejtve a játéktábla */
+    display: grid; /* Grid elrendezés alkalmazása */
+    justify-content: center; /* A rács vízszintesen középre kerül */
+    grid-template-rows: repeat(30, 30px); /* 30 sor, mindegyik 30px magas */
+    grid-template-columns: repeat(15, 30px); /* 15 oszlop, mindegyik 30px széles */
+    gap: 4px; /* Cellák közötti térköz */
+    margin: 20px auto; /* Felső margó és vízszintes középre igazítás */
+}
+
+hr, #divider {
+    display: none; /* Elválasztó vonal alapból el van rejtve */
+    width: 40%; /* Az elválasztó vonal szélessége a kijelző 40%-a */
+    border: 2px solid #0ff; /* Ciánkék színű vonal */
+    margin: 20px auto; /* Függőleges margó + vízszintes középre igazítás */
+    opacity: 0.5; /* 50%-os átlátszóság */
+}
+
+.cell {
+    width: 30px; /* Cella szélessége */
+    height: 30px; /* Cella magassága */
+    background-color: #111; /* Alap sötétszürke háttérszín */
+    border: 2px solid #222; /* Halványabb keret a cella körül */
+    transform: rotate(45deg); /* Rombusz alak elforgatással */
+    cursor: pointer; /* Egérmutató mutatja, hogy kattintható */
+    transition: all 0.2s ease; /* Finom animáció minden változásra */
+}
+
+.cell:hover {
+    box-shadow: 0 0 10px #0ff; /* Világoskék ragyogás egér fölött */
+    transform: scale(1.1); /* Kicsit megnagyítja a cellát hover esetén */
+}
+
+.red {
+    background-color: #ff073a; /* Piros cellaszín */
+    box-shadow: 0 0 12px #ff073a; /* Ragyogás piros színben */
+}
+
+.yellow {
+    background-color: #ffee00; /* Sárga cellaszín */
+    box-shadow: 0 0 12px #ffee00; /* Ragyogás sárga színben */
+}
+
+.blue {
+    background-color: #00f0ff; /* Kék cellaszín */
+    box-shadow: 0 0 12px #00f0ff; /* Ragyogás kék színben */
+}
+
+.green {
+    background-color: #00ff6a; /* Zöld cellaszín */
+    box-shadow: 0 0 12px #00ff6a; /* Ragyogás zöld színben */
+}
+
+.selected {
+    outline: 2px solid white; /* Fehér keret a kijelölt cellák körül */
+    box-shadow: 0 0 15px white; /* Ragyogás fehérrel a kijelöléshez */
+}
+
+@keyframes popOut {
+    0% { transform: scale(1); opacity: 1; } /* Kiinduló állapot */
+    50% { transform: scale(1.4); opacity: 0.7; } /* Növekvő és fakuló */
+    100% { transform: scale(0); opacity: 0; } /* Eltűnés */
+}
+
+.pop {
+    animation: popOut 0.4s forwards; /* „Kipukkanás” animáció */
+}
+
+#startButton {
+    display: block; /* Blokk szintű elem, hogy margin: auto működjön */
+    margin: 40px auto; /* Felső margó + vízszintesen középre igazítás */
+    padding: 14px 28px; /* Belső térköz (top/bottom, left/right) */
+    font-size: 20px; /* Betűméret */
+    background: linear-gradient(90deg, #ff00ff, #ff073a); /* Színátmenetes háttér */
+    color: black; /* Betűszín */
+    border: none; /* Keret eltávolítása */
+    border-radius: 8px; /* Lekerekített sarkok */
+    cursor: pointer; /* Kéz ikon mutatja, hogy kattintható */
+    transition: 0.3s ease; /* Finom animáció stílusváltozásra */
+}
+
+#nextLevelButton:hover, #startButton:hover {
+    background: linear-gradient(90deg, #00f0ff, #0ff); /* Hover színátmenet világoskék árnyalatokkal */
+    transform: scale(1.1); /* Hoverre nagyítás */
+}
+
+#formSection {
+    display: none; /* Alapból rejtett űrlap szakasz */
+    color: #0ff; /* Szöveg színe világoskék */
+    text-align: center; /* Középre igazított tartalom */
+    margin-top: 30px; /* Felső margó */
+}
+
+#formSection input, #formSection button {
+    padding: 8px; /* Belső térköz */
+    background-color: #111; /* Sötét háttér */
+    color: #0ff; /* Szöveg világoskék */
+    border: 1px solid #0ff; /* Világoskék keret */
+    border-radius: 5px; /* Lekerekített sarkok */
+    margin: 5px; /* Külső térköz */
+}
+
+#leaderboard {
+    color: #0ff; /* Ranglista szöveg színe */
+    margin-top: 20px; /* Felső margó */
+    text-align: center; /* Középre igazítás */
+}
+
+#timer, #scoreDisplay {
+    color: #0ff; /* Idő és pontszám színe */
+    text-align: center; /* Középre igazított szöveg */
+    font-size: 22px; /* Betűméret */
+    margin-top: 15px; /* Felső margó */
+    text-shadow: 0 0 5px #0ff; /* Fényes hatású szövegárnyék */
+}
+
+#leaderboardTable td, #leaderboardTable th {
+    color: #0ff; /* Ranglista táblázat szövegszíne */
+    border: 1px solid #0ff; /* Táblázat celláinak kerete */
+    padding: 8px; /* Belső térköz a cellákban */
+    text-align: center; /* Szöveg középre igazítása */
+}

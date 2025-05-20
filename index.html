@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Crashdown</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="game"></div>
+
+<hr id="divider">
+
+
+<button id="startButton" onclick="startGame()">Start</button>
+<button onclick="forceGameOver()" style="margin: 10px auto; display: block;">Force Game Over</button>
+
+<div id="timer" class="white"></div>
+<div id="scoreDisplay" class="white"></div>
+
+<!-- Névbekérő és mentő szakasz -->
+<div id="formSection" style="display: none;">
+    <p>Even if you lost, you can save your score to the leaderboard!</p>
+    <label for="nameInput">Name: </label>
+    <input type="text" id="nameInput" name="playerName">
+    <button onclick="saveScore()">Save</button>
+</div>
+
+<!-- Toplista -->
+<div id="leaderboardSection" style="display: none;">
+    <h2>Leaderboard</h2>
+    <table id="leaderboardTable" border="1">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Level</th>
+            <th>Time</th>
+            <th>Score</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
